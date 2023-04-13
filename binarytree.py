@@ -39,11 +39,13 @@ class Node: #only one class is needed for the binary tree
                     self.left = Node(data)
                 else: # if left is something, use that as the next point and try again
                     self.left.insert(data)
+                    
             elif data > self.data:
                 if self.right is None: #if right is none, set as inputted data
                     self.right = Node(data)
                 else: # if right is something, use that as the next point and try again
                     self.right.insert(data)
+                    
         else: # if there was no root, the inserted data was set as the root
             self.data = data
 
@@ -54,12 +56,14 @@ class Node: #only one class is needed for the binary tree
                 return
             self.left = self.left.delete(data)
             return self # data is not deleted - yet
+        
         elif data > self.data: # finding value in the right tree
             if self.right is None: # if the data does not exist, return DNE
                 print("The data does not exist in the tree.")
                 return 
             self.right = self.right.delete(data)
             return self # data is not deleted - yet
+        
         else: 
             if self.left is None and self.right is None: # scans left and right children of the node
                 return None # if there are no children, its a leaf (case 1) so we delete that 
@@ -67,6 +71,7 @@ class Node: #only one class is needed for the binary tree
                 return self.right # if there is only one child, we just delete the child
             if self.right is None:
                 return self.left
+            
             parent = self # setting temp values to be able to merge subtrees
             node = self.left 
             while node.right is not None: # finds the rightmost node to replace the node
