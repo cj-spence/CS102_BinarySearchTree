@@ -50,7 +50,7 @@ class Node: #only one class is needed for the binary tree
             self.data = data
 
     def delete(self, data):
-        if data < self.data: # findind the value in the left tree
+        if data < self.data: # find the value in the left tree
             if self.left is None: # if the data does not exist, return DNE
                 print("The data does not exist in the tree.")
                 return
